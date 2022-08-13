@@ -36,6 +36,7 @@ const Home = () => {
   const firstItem = lastItem - itemsPerPage;
   //en currentItem guardo los items que estoy renderizando (por ej: del 0 al 10)
   const currentItems = dogs?.slice(firstItem, lastItem);
+
   // si el numero esta dentro de mi limite maximo y minimo, renderizo los numbers pages
   const renderPages = pages.map((number) => {
     if (number < maxPageLimit + 1 && number > minPageLimit) {
@@ -69,8 +70,7 @@ const Home = () => {
       setMinPageLimit(minPageLimit + limitPage);
     }
   };
-  // same que handleNext
-  // en el if,
+
   const handlePrev = () => {
     setCurrentPage(currentPage - 1);
     if ((currentPage - 1) % limitPage === 0) {
@@ -78,16 +78,6 @@ const Home = () => {
       setMinPageLimit(minPageLimit - limitPage);
     }
   };
-
-  // let pageIncrementBtn = null;
-  // if (pages.length > maxPageLimit) {
-  //     pageIncrementBtn = <li onClick={handleNext}> &hellip; </li>;
-  // }
-
-  // let pageDecrementBtn = null;
-  // if (minPageLimit >= 1) {
-  //     pageDecrementBtn = <li onClick={handlePrev}> &hellip; </li>;
-  // }
 
   const url =
     "https://s1.eestatic.com/2021/11/10/actualidad/626198188_214456909_1024x576.jpg";

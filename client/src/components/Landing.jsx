@@ -23,10 +23,10 @@ const Landing = () => {
         </Link>
       </div>
       <div className={style.background}>
-        <div>
-          <img className={style.img1} src={url2} alt="Not found" />
-          <img className={style.img1} src={url3} alt="Not found" />
-          <img className={style.img} src={url} alt="Not found" />
+        <div className={style.images}>
+          <img className={style.img1}  src={url2} alt="Not found" />
+          <img className={style.img2} src={url3} alt="Not found" />
+          <img className={style.img3} src={url} alt="Not found" />
           <img className={style.img} src={url1} alt="Not found" />
         </div>
       </div>

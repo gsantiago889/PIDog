@@ -1,24 +1,16 @@
 .background {
   background-image: url("D:/PI-Dogs-main/client/src/img/DogsArt.png");
   background-position: center;
-  background-size: cover;
+  background-size: 70%;
   background-repeat: no-repeat;
   margin: 5px;
   padding: 250px;
+  display: flex;
 }
 .encabezado {
   background-color: black;
 }
 
-.img {
-  height: 100px;
-  width: 100px;
-  border-color: black;
-  border-radius: 50%;
-  align-items: center;
-  background-color: transparent;
-  border-color: solid black;
-}
 .img1 {
   height: 100px;
   width: 100px;
@@ -26,6 +18,20 @@
   border-radius: 50%;
   background-color: transparent;
   border-color: solid black;
+}
+
+.img1:hover {
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-radius: 50%;
+  align-items: center;
+  background-color: transparent;
+  border-color: solid black;
+}
+
+.images {
+  display: flexbox;
 }
 
 .welcome {

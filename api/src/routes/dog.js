@@ -36,6 +36,7 @@ router.post("/", async (req, res, next) => {
       .send(
         "no se cargaron todos los campos, verifique, no se guardo en la base de datos"
       );
+
     return;
   }
 

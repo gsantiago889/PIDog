@@ -76,7 +76,8 @@ export default function CreateDog() {
             weight: "",
             life_span: "",
             temperaments: [],
-          }).then(alert("Your breed has been created successfully"))
+          }),
+          alert("Your breed has been created successfully")
         )
         .catch((error) => alert("DON'T SAVE IN BD!!, empty fields VERIFY!!"));
     } else {
@@ -109,22 +110,33 @@ export default function CreateDog() {
     return names;
   };
 
+  function inputCharacters(event) {
+    if (event.keyCode === 13) {
+      document.getElementById("second").focus();
+    }
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={style.form} onSubmit={handleSubmit}>
+      <Link to={"/home"}>
+        <button className={style.btn}>Home</button>
+      </Link>
       <div className={style.background}>
         <ul>
+          <h3>Create Dog</h3>
           <div className={style.label}>
             <li>
               <label>Name:</label>
             </li>
           </div>
           <input
+            autoFocus
             className={style.input}
             key="name"
             type="text"
             name="name"
             placeholder="Insert name..."
-            onChange={handleInputChange}
+            onChange={(handleInputChange, inputCharacters)}
             value={input.name}
           />
           {errors.name && <p className={style.danger}>{errors.name}</p>}
@@ -136,6 +148,7 @@ export default function CreateDog() {
           </div>
           <input
             className={style.input}
+            id="second"
             key="height"
             type="text"
             name="height"
@@ -217,9 +230,6 @@ export default function CreateDog() {
             Create
           </button>
         </ul>
-        <Link to={"/home"}>
-          <button className={style.btn}>Home</button>
-        </Link>
       </div>
     </form>
   );

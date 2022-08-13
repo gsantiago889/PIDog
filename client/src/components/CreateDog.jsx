@@ -41,7 +41,7 @@ export default function CreateDog() {
 
   const dispatch = useDispatch();
 
-  /*al renderizar despacho la action getTemperament una sola vez, lo indican los corchetes*/
+  /*despacho la action getTemperament una sola vez, lo indican los corchetes*/
   useEffect(
     () => {
       dispatch(getTemperaments());
@@ -76,12 +76,9 @@ export default function CreateDog() {
             weight: "",
             life_span: "",
             temperaments: [],
-          })
+          }).then(alert("Your breed has been created successfully"))
         )
-        .catch((error) =>
-          alert("no se guardo en la base de datos!!, faltaron datos controle!!")
-        );
-      alert("Your breed has been created successfully");
+        .catch((error) => alert("DON'T SAVE IN BD!!, empty fields VERIFY!!"));
     } else {
       return alert("Something went wrong. Please try again.");
     }

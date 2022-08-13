@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3c0607bc.chunk.css",
+    "main.js": "/static/js/main.0dd778d3.chunk.js",
+    "main.js.map": "/static/js/main.0dd778d3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6b660a81.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6b660a81.js.map",
+    "static/js/2.4f714e34.chunk.js": "/static/js/2.4f714e34.chunk.js",
+    "static/js/2.4f714e34.chunk.js.map": "/static/js/2.4f714e34.chunk.js.map",
+    "static/js/3.acff77d7.chunk.js": "/static/js/3.acff77d7.chunk.js",
+    "static/js/3.acff77d7.chunk.js.map": "/static/js/3.acff77d7.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.3c0607bc.chunk.css.map": "/static/css/main.3c0607bc.chunk.css.map",
+    "static/js/2.4f714e34.chunk.js.LICENSE.txt": "/static/js/2.4f714e34.chunk.js.LICENSE.txt",
+    "static/media/CreateDog.module.css": "/static/media/Dogs.919dfab4.jpg",
+    "static/media/Home.module.css": "/static/media/dogFondo4.03f367a7.png",
+    "static/media/Landing.module.css": "/static/media/fondoOscuro.a8b5f177.avif",
+    "static/media/DetailDog.module.css": "/static/media/fondoPerros.d574d99e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6b660a81.js",
+    "static/js/2.4f714e34.chunk.js",
+    "static/css/main.3c0607bc.chunk.css",
+    "static/js/main.0dd778d3.chunk.js"
+  ]
+}

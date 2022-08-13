@@ -1,0 +1,50 @@
+.background {
+  background-image: url("D:/PI-Dogs-main/client/src/img/DogsArt.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 5px;
+  padding: 250px;
+}
+.encabezado {
+  background-color: black;
+}
+
+.img {
+  height: 100px;
+  width: 100px;
+  border-color: black;
+  border-radius: 50%;
+  align-items: center;
+  background-color: transparent;
+  border-color: solid black;
+}
+.img1 {
+  height: 100px;
+  width: 100px;
+  border-color: black;
+  border-radius: 50%;
+  background-color: transparent;
+  border-color: solid black;
+}
+
+.welcome {
+  display: flex;
+  margin-left: 550px;
+  height: 100px;
+  width: 500px;
+  border-color: black;
+  border-radius: 30%;
+  background-color: transparent;
+  border-color: solid black;
+}
+.letGo {
+  display: flex;
+  margin-left: 650px;
+  height: 100px;
+  width: 300px;
+  border-color: black;
+  border-radius: 10%;
+  background-color: transparent;
+  border-color: solid black;
+}

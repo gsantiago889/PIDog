@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+.background {
+  background-image: url("D:/PI-Dogs-main/client/src/img/fondoPerros.png");
+  width: 100vw;
+  min-height: 38vw;
+  height: 100%;
+  background-size: 100%;
+}
+.text {
+  padding: 10px;
+  font-size: 25px;
+  color: #2c3e50;
+
+  font-weight: 1000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.text2 {
+  margin: 10px;
+  font-size: 20px;
+  color: #2c3e50;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.back {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-attachment: scroll;
+}
+.contenedor {
+  margin: 60px;
+  width: 350px;
+  height: 570px;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
+  background-color: rgb(183, 214, 236);
+  border-radius: 5%;
+  padding-left: 5px;
+  padding-right: 10px;
+  justify-content: center;
+  margin-left: 105px;
+  color: solid black;
+  border-color: solid black;
+}
+.image {
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-radius: 20%;
+  justify-content: center;
+}
+
+.direccion {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+.button {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  color: yellow;
+  border-color: solid black;
+  background-color: rgb(65, 33, 226);
+  border-radius: 60px;
+  color: solid black;
+  font-size: 15px;
+  font-weight: 800;
+  width: 30px;
+  height: 30px;
+}
+.button:hover {
+  color: rgb(42, 11, 1);
+  border-color: solid yellow;
+  background-color: transparent;
+}

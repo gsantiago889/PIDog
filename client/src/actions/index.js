@@ -19,7 +19,7 @@ export function getDogs(dispatch) {
       });
     } catch (e) {
       console.log(e);
-      return dispatch({ type: GETALLDOGS, payload: "Error" });
+      return dispatch({ type: GETALLDOGS, payload: "Error not found dogs" });
     }
   };
 }
@@ -32,7 +32,7 @@ export function getDetail(id) {
       });
     } catch (e) {
       console.log(e);
-      return dispatch({ type: GETDETAIL, payload: "Error" });
+      return dispatch({ type: GETDETAIL, payload: "Error not foun dog" });
     }
   };
 }

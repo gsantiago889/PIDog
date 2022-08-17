@@ -23,7 +23,7 @@ export function validate(input) {
   if (!input.life_span) {
     errors.life_span = "Life Span is required";
   }
-  if (!input.temperaments) {
+  if (input.temperaments.length === 0) {
     errors.temperaments = "Add at least one temperament";
   }
   return errors;
@@ -52,7 +52,7 @@ export default function CreateDog() {
 
   /*me traigo el estado de los temperamentos de reducers*/
   const tempss = useSelector((state) => state.allTemps);
-
+  const miBoton = document.getElementById("miButton");
   /*con cada cambio en el input seteo el input*/
   const handleInputChange = function (e) {
     setInput({
@@ -60,13 +60,20 @@ export default function CreateDog() {
       [e.target.name]: e.target.value,
     });
     setErrors(validate({ ...input, [e.target.name]: e.target.value }));
+    miBoton.disabled = false;
   };
 
   /*boton para enviar los cambios*/
   const handleSubmit = (e) => {
     e.preventDefault();
     //console.log(input);
-    if (!errors.name && !errors.weight && !errors.height && !errors.life_span) {
+    if (
+      !errors.name &&
+      !errors.weight &&
+      !errors.height &&
+      !errors.life_span &&
+      !errors.temperaments
+    ) {
       axios
         .post("http://localhost:3001/dog", input)
         .then(
@@ -95,6 +102,7 @@ export default function CreateDog() {
         temperaments: [...prev.temperaments, parseInt(e.target.value)],
       }));
     }
+    setErrors(validate({ ...input, [e.target.name]: e.target.value }));
   }
 
   /*pusheo a names, los nombres de temperament donde tempss.id === select.id*/
@@ -110,18 +118,12 @@ export default function CreateDog() {
     return names;
   };
 
-  function inputCharacters(event) {
-    if (event.keyCode === 13) {
-      document.getElementById("second").focus();
-    }
-  }
-
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
+    <div className={style.background}>
       <Link to={"/home"}>
         <button className={style.btn}>Home</button>
       </Link>
-      <div className={style.background}>
+      <form className={style.form} onSubmit={handleSubmit}>
         <ul>
           <h3>Create Dog</h3>
           <div className={style.label}>
@@ -136,11 +138,12 @@ export default function CreateDog() {
             type="text"
             name="name"
             placeholder="Insert name..."
-            onChange={(handleInputChange, inputCharacters)}
+            onChange={handleInputChange}
             value={input.name}
           />
           {errors.name && <p className={style.danger}>{errors.name}</p>}
           <br />
+
           <div className={style.label}>
             <li>
               <label>Height:</label>
@@ -148,7 +151,6 @@ export default function CreateDog() {
           </div>
           <input
             className={style.input}
-            id="second"
             key="height"
             type="text"
             name="height"
@@ -197,8 +199,9 @@ export default function CreateDog() {
               <label>Temperaments:</label>
             </li>
           </div>
+
           <select
-            className={style.select}
+            className={style.input}
             key="temperaments"
             name="temperaments"
             onChange={(e) => handleSelect(e)}
@@ -206,6 +209,7 @@ export default function CreateDog() {
             value={input.temperaments}
           >
             {/* Cargo mi select */}
+            <option>Selected temperamets</option>
             {tempss?.map((e) => (
               <option value={e.id} key={e.id}>
                 {e.name}
@@ -223,15 +227,17 @@ export default function CreateDog() {
           ))}
           <button
             className={style.button}
+            id="miButton"
             type="submit"
             name="submit"
             onClick={handleSubmit}
+            disabled={true}
           >
             Create
           </button>
         </ul>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 

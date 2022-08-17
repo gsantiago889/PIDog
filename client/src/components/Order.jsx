@@ -56,12 +56,16 @@ export function Order() {
     },
     // eslint-disable-next-line
     [selectTemp]
+    // estado de los temperamentos
   );
 
   function handleChange(e) {
     setSelectTemp(e.target.value);
   }
 
+  //mapea dogs y mira  temperamentos de cada dog y pushea a filtering[],
+  // donde t.name(nombre del temperamento === selectTemp)
+  //selectTemp se setea en el onChange que llama a handleChange
   function handleClick() {
     let filtering = [];
     allTheDogs?.forEach((e) => {
@@ -133,6 +137,7 @@ export function Order() {
             name="temperaments"
             value={selectTemp}
           >
+            <option value="ALL">ALL TEMP</option>
             {tempers?.map((t) => {
               return <option value={t.name}>{t.name}</option>;
             })}

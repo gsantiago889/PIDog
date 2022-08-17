@@ -52,6 +52,7 @@ router.get("/", async (req, res, next) => {
       });
 
       const api = await axios.get(`${API}?api_key=${API_KEY}`);
+
       let dogs = await Promise.all([database, api]).then((results) => {
         const [databased, apiData] = results;
         const response = databased.concat(apiData.data);
@@ -74,7 +75,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
-  if (id.length < 15) {
+  if (id.length < 4) {
     try {
       const perritos = await axios.get(
         `https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`

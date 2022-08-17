@@ -7,9 +7,9 @@ describe("Model Testing", function () {
       await Dog.sync({ force: true });
     });
     describe("Validations", function () {
-      it("No deberia crearse si no recibe todos los datos", function (done) {
+      it("No deberia crearse si no recibe todos los datos", (done) => {
         Dog.create({
-          name: "Koda",
+          name: "Pichichu",
         })
           .then(() => done("No se creó"))
           .catch(() => done());

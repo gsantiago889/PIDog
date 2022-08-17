@@ -12,8 +12,11 @@
 }
 
 .img1 {
-  height: 100px;
-  width: 100px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 400px;
+  width: 400px;
   border-color: black;
   border-radius: 50%;
   background-color: transparent;
@@ -21,6 +24,50 @@
 }
 
 .img1:hover {
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-radius: 50%;
+  align-items: center;
+  background-color: transparent;
+  border-color: solid black;
+}
+.img2 {
+  position: absolute;
+  top: 450px;
+  left: 100px;
+  height: 300px;
+  width: 300px;
+  border-color: black;
+  border-radius: 50%;
+  background-color: transparent;
+  border-color: solid black;
+}
+
+.img3 {
+  position: absolute;
+  top: 450px;
+  left: 1250px;
+  height: 300px;
+  width: 300px;
+  border-color: black;
+  border-radius: 50%;
+  background-color: transparent;
+  border-color: solid black;
+}
+
+.img4 {
+  position: absolute;
+  top: 5px;
+  left: 1200px;
+  height: 400px;
+  width: 400px;
+  border-color: black;
+  border-radius: 50%;
+  background-color: transparent;
+  border-color: solid black;
+}
+.img4:hover {
   height: 200px;
   width: 200px;
   border-color: black;
@@ -53,4 +100,25 @@
   border-radius: 10%;
   background-color: transparent;
   border-color: solid black;
+}
+.foot {
+  position: absolute;
+  top: 730px;
+  left: 630px;
+  height: 80px;
+  width: 350px;
+  border-color: black;
+  background-color: transparent;
+  border-color: solid black;
+}
+.Afoot {
+  position: absolute;
+  top: 700px;
+  left: 630px;
+  height: 80px;
+  width: 350px;
+  color: blue;
+  font-weight: bold;
+  border-color: black;
+  background-color: transparent;
 }

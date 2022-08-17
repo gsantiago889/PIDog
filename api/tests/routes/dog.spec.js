@@ -1,10 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-// name: "Koda",
-//       height: "12-25",
-//       weight: "12-25",
-//       life_span: "12"
-
 const { expect } = require("chai");
 const session = require("supertest-session");
 const app = require("../../src/app");

@@ -26,8 +26,9 @@ const { v4: uuidv4 } = require("uuid");
 
 router.post("/", async (req, res, next) => {
   const { name, height, weight, life_span, temperaments } = req.body;
+  console.log(temperaments);
 
-  if (!name || !height || !weight || !life_span || !temperaments) {
+  if (!name || !height || !weight || !life_span || temperaments.length === 0) {
     console.log(
       "no se cargaron todos los campos, verifique, no se guardo en la base de datos"
     );

@@ -12,25 +12,36 @@
   list-style: none;
 }
 
-.form {
+.background {
   background-image: url("D:/PI-Dogs-main/client/src/img/Dogs.jpg");
-  background-size: 70%;
-  display: flex;
+  background-size: 50%;
+  display: grid;
+  gap: 10px;
+  width: 1500px;
+  top: 5px;
   justify-content: center;
+  grid-template-columns: 1fr 1fr;
   padding-top: 100px;
   padding-right: 100px;
   padding-bottom: 290px;
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
 }
-.background {
+.form {
   background-color: rgb(107, 119, 119);
+  border-radius: 20%;
   background-size: 50%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   justify-content: center;
+  align-items: center;
   width: 300px;
 }
 
 .label {
-  display: flex;
+  display: block;
   font-family: Arial, Helvetica, sans-serif;
   width: 170px;
   height: 20px;

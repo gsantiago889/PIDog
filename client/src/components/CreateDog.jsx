@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 
 export function validate(input) {
   let errors = {};
-  if (!input.name) {
+  if (input.name.trim().length === 0 || !input.name) {
     errors.name = "Name is required";
   }
+
   if (!input.height) {
     errors.height = "Height is required";
   } else if (!/\d{1,2}-\d{1,2}/g.test(input.height)) {
@@ -23,13 +24,19 @@ export function validate(input) {
   if (!input.life_span) {
     errors.life_span = "Life Span is required";
   }
+
   if (input.temperaments.length === 0) {
     errors.temperaments = "Add at least one temperament";
   }
   return errors;
 }
-/*Estado local del componte*/
+
+function capitalizarPalabra(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 export default function CreateDog() {
+  /*Defino el estado inicial del componte local*/
   const [input, setInput] = useState({
     name: "",
     height: "",
@@ -41,7 +48,7 @@ export default function CreateDog() {
 
   const dispatch = useDispatch();
 
-  /*despacho la action getTemperament una sola vez, lo indican los corchetes*/
+  /*despacho la action getTemperament una sola vez, lo indican los corchetes como el component did mount*/
   useEffect(
     () => {
       dispatch(getTemperaments());
@@ -52,12 +59,15 @@ export default function CreateDog() {
 
   /*me traigo el estado de los temperamentos de reducers*/
   const tempss = useSelector((state) => state.allTemps);
+
+  //uso para dehabilitar el boton create hasta que no se relle al menos un campo
   const miBoton = document.getElementById("miButton");
+
   /*con cada cambio en el input seteo el input*/
   const handleInputChange = function (e) {
     setInput({
       ...input,
-      [e.target.name]: e.target.value,
+      [e.target.name]: capitalizarPalabra(e.target.value),
     });
     setErrors(validate({ ...input, [e.target.name]: e.target.value }));
     miBoton.disabled = false;
@@ -77,6 +87,7 @@ export default function CreateDog() {
       axios
         .post("http://localhost:3001/dog", input)
         .then(
+          //limpio en input.state
           setInput({
             name: "",
             height: "",
@@ -92,7 +103,7 @@ export default function CreateDog() {
     }
   };
 
-  /*Controlo que se seleccione un temperament, hago una copia de los seleccionado y agrego uno nuevo*/
+  /*Controlo que no seleccione un temperament ya seleccionado, hago una copia de los seleccionado y agrego uno nuevo*/
   function handleSelect(e) {
     if (input.temperaments.includes(parseInt(e.target.value))) {
       alert("You already selected this temperament. Try again.");
@@ -176,6 +187,7 @@ export default function CreateDog() {
           />
           {errors.weight && <p className={style.danger}>{errors.weight}</p>}
           <br />
+
           <div className={style.label}>
             <li>
               <label>Life Span:</label>

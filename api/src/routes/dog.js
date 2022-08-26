@@ -4,40 +4,16 @@ const { Router } = require("express");
 const router = Router();
 const { Dog } = require("../db.js");
 require("dotenv").config();
-const { Sequelize, UUID } = require("sequelize");
+const { Sequelize, UUID, where } = require("sequelize");
 const { v4: uuidv4 } = require("uuid");
-
-// async function idDog() {
-//   const dogFromDb = await Dog.findAll({ attributes: ["id"] });
-//   var id = "baseDatos0";
-//   if (dogFromDb.length) {
-//     const ids = dogFromDb.map((g) => {
-//       return g.dataValues.id;
-//     });
-//     const intIds = ids?.map((id) => {
-//       return parseInt(id.slice(8));
-//     });
-//     const max = Math.max(...intIds);
-//     id = "baseDatos" + (max + 1);
-//   }
-
-//   return id;
-// }
+//const { Where } = require("sequelize/types/utils.js");
 
 router.post("/", async (req, res, next) => {
   const { name, height, weight, life_span, temperaments } = req.body;
-  console.log(temperaments);
 
   if (!name || !height || !weight || !life_span || temperaments.length === 0) {
-    console.log(
-      "no se cargaron todos los campos, verifique, no se guardo en la base de datos"
-    );
-    res
-      .status(500)
-      .send(
-        "no se cargaron todos los campos, verifique, no se guardo en la base de datos"
-      );
-
+    res.status(418).send("Soy una tetera");
+    console.log("soy una tetera");
     return;
   }
 
@@ -56,5 +32,18 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
+
+//UPDATE
+// router.put('put/:id',(req,res)=>{
+//   await Dog.update({
+//     name,
+//     height
+//   }
+//     where:{
+//       id: req.params.id})
+
+//     }).then(result =>{
+//       res.json(result)
+//     })
 
 module.exports = router;

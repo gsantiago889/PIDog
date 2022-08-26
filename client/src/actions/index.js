@@ -157,9 +157,9 @@ export function getLightiest() {
   };
 }
 
-export function filter(array) {
+export function filter(filteringOrder) {
   return {
     type: FILTERBYTEMPS,
-    payload: array,
+    payload: filteringOrder,
   };
 }

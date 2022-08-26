@@ -25,6 +25,15 @@ module.exports = (sequelize) => {
     },
     life_span: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    imagen: {
+      type: DataTypes.TEXT,
+    },
+    eliminated: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
   });
 };

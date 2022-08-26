@@ -60,12 +60,14 @@ export function Order() {
   );
 
   function handleChange(e) {
+    e.preventDefault();
     setSelectTemp(e.target.value);
   }
 
   //mapea dogs y mira  temperamentos de cada dog y pushea a filtering[],
   // donde t.name(nombre del temperamento === selectTemp)
   //selectTemp se setea en el onChange que llama a handleChange
+  //ACTION FILTER
   function handleClick() {
     let filtering = [];
     allTheDogs?.forEach((e) => {

@@ -66,7 +66,7 @@ function rootReducer(state = initialState, action) {
     case "API":
       return {
         ...state,
-        allDogs: state.allDogs.filter((b) => b.id > 200).sort(),
+        allDogs: state.allDogs.filter((b) => b.id > 0).sort(),
       };
     case "ALL":
       return {
@@ -86,6 +86,7 @@ function rootReducer(state = initialState, action) {
     case FILTERBYTEMPS:
       return {
         ...state,
+        //allDogs: action.payload,
         filter: action.payload,
       };
     default:

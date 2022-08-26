@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getDogs } from "../actions/index";
 import style from "./Home.module.css";
+import logoDog from "../img/plomo.jpg";
 
 const Home = () => {
   //me traigo el estado de mi action con useSelector
@@ -51,13 +52,19 @@ const Home = () => {
   });
   const dispatch = useDispatch();
   // el useEffect es como el componentDidMount, va a traer mi action creator getDogs al renderizar
-  useEffect(
-    () => {
-      dispatch(getDogs());
-    },
-    // eslint-disable-next-line
-    []
-  );
+  useEffect(() => {
+    dispatch(getDogs());
+    setCurrentPage(1);
+  }, [filter, dispatch]);
+
+  //FUNCION para dejar seleccionado el boton activo
+  // function choice() {
+  //   var btnUsuario = document.getElementById(currentPage);
+  //   btnUsuario.onClick = function (e) {
+  //     btnUsuario.style.backgroundColor = "#00aae4";
+  //     btnUsuario.style.color = "#fbfcfc";
+  //   };
+  // }
 
   // hago una funcion handle next que maneje el estado de currentPage, en el if digo que si es mayor
   // a la paginacion paso a tener 20 pags.
@@ -79,8 +86,8 @@ const Home = () => {
     }
   };
 
-  const url =
-    "https://s1.eestatic.com/2021/11/10/actualidad/626198188_214456909_1024x576.jpg";
+  const url = logoDog;
+  //"https://s1.static.com/2021/11/10/actualidad/626198188_214456909_1024x576.jpg";
   // eslint-disable-next-line
   dogs?.map((e) => {
     if (e.id.length > 4) {
@@ -142,6 +149,7 @@ const Home = () => {
         {renderPages}
         <li>
           <button
+            id="btnUsuario"
             onClick={handleNext}
             disabled={currentPage === pages[pages.length - 1] ? true : false}
           >
